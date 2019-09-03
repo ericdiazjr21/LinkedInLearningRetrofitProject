@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LinkedInLearningRetrofitProject</string>
+    <string name="bottom_nav_profile">Profile</string>
+    <string name="bottom_nav_search_github">Search GitHub</string>
+    <string name="bottom_nav_starred_repositories">Starred Repositories</string>
+    <string name="bottom_nav_personal_repositories">Personal Repositories</string>
 </resources>

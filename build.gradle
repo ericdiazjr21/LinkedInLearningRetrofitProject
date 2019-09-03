@@ -3,7 +3,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
@@ -15,8 +15,16 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+
     }
+}
+ext {
+    materialDesignVersion = '1.1.0-alpha09'
+    appCompatVersion = '1.0.2'
+    androidXKotlinVersion = '1.0.2'
+    jUnitVersion = '4.12'
+    androidXTestRunnerVersion = '1.2.0'
+    androidXExpressoVersion = '3.2.0'
 }
 
 task clean(type: Delete) {
