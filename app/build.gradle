@@ -19,7 +19,10 @@ dependencies {
     implementation "com.google.android.material:material:$materialDesignVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.core:core-ktx:$androidXKotlinVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     testImplementation "junit:junit:$jUnitVersion"
     androidTestImplementation "androidx.test:runner:$androidXTestRunnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidXExpressoVersion"
+
 }
