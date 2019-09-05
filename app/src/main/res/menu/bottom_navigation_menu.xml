@@ -10,11 +10,11 @@
             android:icon="@drawable/ic_search_white"
             android:title="@string/bottom_nav_search_github" />
     <item
-            android:id="@+id/stars_view"
+            android:id="@+id/starred_view"
             android:icon="@drawable/ic_star_border_white"
             android:title="@string/bottom_nav_starred_repositories" />
     <item
-            android:id="@+id/repository_view"
+            android:id="@+id/user_view"
             android:icon="@drawable/ic_work_white"
             android:title="@string/bottom_nav_personal_repositories" />
 </menu>
