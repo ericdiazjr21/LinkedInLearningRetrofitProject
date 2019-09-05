@@ -16,11 +16,14 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.google.android.material:material:$materialDesignVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.core:core-ktx:$androidXKotlinVersion"
+    implementation "com.google.android.material:material:$materialDesignVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
     testImplementation "junit:junit:$jUnitVersion"
     androidTestImplementation "androidx.test:runner:$androidXTestRunnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidXExpressoVersion"
