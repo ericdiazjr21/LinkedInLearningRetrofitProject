@@ -1,19 +1,30 @@
 package ericdiaz.program.linkedinlearningretrofitproject.viewmodel
 
+import ericdiaz.program.linkedinlearningretrofitproject.callback.OnFailureListener
+import ericdiaz.program.linkedinlearningretrofitproject.callback.OnSuccessListener
 import ericdiaz.program.linkedinlearningretrofitproject.repository.GitHubServiceRepository
 
-class GitHubViewModel(val gitHubServiceRepository: GitHubServiceRepository) {
+class GitHubViewModel(private val gitHubServiceRepository: GitHubServiceRepository) {
 
-    fun getPublicGists() {
-        gitHubServiceRepository.getPublicGists()
+    fun getPublicGists(
+        onSuccessListener: OnSuccessListener,
+        onFailureListener: OnFailureListener
+    ) {
+        gitHubServiceRepository.getPublicGists(onSuccessListener, onFailureListener)
     }
 
-    fun getStarredGists() {
-        gitHubServiceRepository.getStarredGists()
+    fun getStarredGists(
+        onSuccessListener: OnSuccessListener,
+        onFailureListener: OnFailureListener
+    ) {
+        gitHubServiceRepository.getStarredGists(onSuccessListener, onFailureListener)
     }
 
-    fun getUserGists() {
-        gitHubServiceRepository.getUserGists()
+    fun getUserGists(
+        onSuccessListener: OnSuccessListener,
+        onFailureListener: OnFailureListener
+    ) {
+        gitHubServiceRepository.getUserGists(onSuccessListener, onFailureListener)
     }
 
 }
