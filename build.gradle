@@ -29,6 +29,7 @@ ext {
     constraintLayoutVersion = '2.0.0-beta2'
     recyclerViewVersion = '1.1.0-beta04'
     cardViewVersion = '1.0.0'
+    picassoVersion = '2.71828'
 }
 
 task clean(type: Delete) {
