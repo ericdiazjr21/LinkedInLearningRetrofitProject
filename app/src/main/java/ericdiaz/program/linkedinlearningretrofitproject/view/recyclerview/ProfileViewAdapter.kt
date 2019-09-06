@@ -24,7 +24,7 @@ class ProfileViewAdapter : RecyclerView.Adapter<ProfileViewViewHolder>() {
         holder.onBind(publicGists[position])
     }
 
-    fun setData(newGistLists: ArrayList<Gist>) {
+    fun setData(newGistLists: List<Gist>) {
         publicGists.clear()
         publicGists.addAll(newGistLists)
         notifyDataSetChanged()
