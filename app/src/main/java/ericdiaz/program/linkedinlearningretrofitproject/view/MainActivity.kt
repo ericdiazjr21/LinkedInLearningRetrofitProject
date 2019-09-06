@@ -1,15 +1,12 @@
 package ericdiaz.program.linkedinlearningretrofitproject.view
 
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import ericdiaz.program.linkedinlearningretrofitproject.R
-import ericdiaz.program.linkedinlearningretrofitproject.repository.GitHubServiceRepository
-import ericdiaz.program.linkedinlearningretrofitproject.viewmodel.GitHubViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,8 +16,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var searchGistsView: View
     private lateinit var starredGistsView: View
     private lateinit var userGistsView: View
-    private lateinit var gitHubServiceRepository: GitHubServiceRepository
-    private lateinit var gitHubViewModel: GitHubViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
