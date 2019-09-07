@@ -56,4 +56,20 @@ class GitHubServiceRepository constructor(
             }
         })
     }
+
+    fun getGist(
+        gistId: String,
+        onSuccessListener: OnSuccessListener,
+        onFailureListener: OnFailureListener
+    ) {
+        githubService.getGist(gistId).enqueue(object : Callback<Gist> {
+            override fun onFailure(call: Call<Gist>, t: Throwable) {
+                onFailureListener.onFailure(t)
+            }
+
+            override fun onResponse(call: Call<Gist>, response: Response<Gist>) {
+                onSuccessListener.onSuccess(response.body())
+            }
+        })
+    }
 }
