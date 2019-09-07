@@ -3,6 +3,7 @@ package ericdiaz.program.linkedinlearningretrofitproject.api
 import ericdiaz.program.linkedinlearningretrofitproject.model.Gist
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface GithubService {
 
@@ -23,4 +24,7 @@ interface GithubService {
      */
     @GET("gists/starred")
     fun getStarredGists(): Call<List<Gist>>
+
+    @GET("gists/{gistId}")
+    fun getGist(@Path("gistId") gistId: String): Call<Gist>
 }
