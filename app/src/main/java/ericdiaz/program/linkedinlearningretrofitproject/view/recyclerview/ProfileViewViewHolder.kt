@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import ericdiaz.program.linkedinlearningretrofitproject.R
+import ericdiaz.program.linkedinlearningretrofitproject.extensions.format
 import ericdiaz.program.linkedinlearningretrofitproject.model.Gist
 
 class ProfileViewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -24,7 +25,7 @@ class ProfileViewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
         Picasso.get().load(gist.gitHubUser.photoUrl).into(userProfilePicImageView)
         gistNameTextView.text = gist.gitHubUser.userName
         gistDescriptionTextView.text = gist.description
-        dateCreatedTextView.text = gist.createdAt.toString()
+        dateCreatedTextView.text = gist.createdAt.format()
     }
 }
 
