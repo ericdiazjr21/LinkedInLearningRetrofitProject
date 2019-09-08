@@ -19,13 +19,19 @@ class ProfileViewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
         itemView.findViewById(R.id.gist_description_text_view)
     private val dateCreatedTextView: TextView =
         itemView.findViewById(R.id.date_created_text_view)
-
+    private val listener: OnItemViewClickedListener = itemView.context as OnItemViewClickedListener
 
     fun onBind(gist: Gist) {
         Picasso.get().load(gist.gitHubUser.photoUrl).into(userProfilePicImageView)
         gistNameTextView.text = gist.gitHubUser.userName
         gistDescriptionTextView.text = gist.description
         dateCreatedTextView.text = gist.createdAt.format()
+        itemView.setOnClickListener { listener.itemViewClicked(gist.gistId) }
     }
+
+    interface OnItemViewClickedListener {
+        fun itemViewClicked(gistId: String)
+    }
+
 }
 
