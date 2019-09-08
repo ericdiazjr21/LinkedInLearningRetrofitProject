@@ -13,6 +13,14 @@ class GitHubViewModel(private val gitHubServiceRepository: GitHubServiceReposito
         gitHubServiceRepository.getPublicGists(onSuccessListener, onFailureListener)
     }
 
+    fun getGist(
+        gistId: String,
+        onSuccessListener: OnSuccessListener,
+        onFailureListener: OnFailureListener
+    ) {
+        gitHubServiceRepository.getGist(gistId, onSuccessListener, onFailureListener)
+    }
+
     fun getStarredGists(
         onSuccessListener: OnSuccessListener,
         onFailureListener: OnFailureListener
