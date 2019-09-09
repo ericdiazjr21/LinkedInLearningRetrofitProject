@@ -7,23 +7,25 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import ericdiaz.program.linkedinlearningretrofitproject.callback.OnFailureListener
 import ericdiaz.program.linkedinlearningretrofitproject.callback.OnSuccessListener
 import ericdiaz.program.linkedinlearningretrofitproject.model.Gist
+import ericdiaz.program.linkedinlearningretrofitproject.viewmodel.GitHubViewModelProvider
 
-class GistView(context: Context, attrs: AttributeSet?) :
-    ConstraintLayout(context, attrs),
-    OnSuccessListener,
-    OnFailureListener {
+class GistView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
+    private val gitHubViewModel = GitHubViewModelProvider.gitHubViewModel
 
-    override fun onFinishInflate() {
-        super.onFinishInflate()
-
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        gitHubViewModel.getGist(
+            object : OnSuccessListener {
+                override fun onSuccess(gist: Gist?) {
+                    Toast.makeText(context, gist?.gistId, Toast.LENGTH_LONG).show()
+                }
+            },
+            object : OnFailureListener {
+                override fun onFailure(throwable: Throwable) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+            })
     }
 
-    override fun onSuccess(gist: Gist?) {
-        Toast.makeText(context, gist?.gistId.toString(), Toast.LENGTH_LONG).show()
-    }
-
-    override fun onFailure(throwable: Throwable) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
 }
