@@ -6,6 +6,8 @@ import ericdiaz.program.linkedinlearningretrofitproject.repository.GitHubService
 
 class GitHubViewModel(private val gitHubServiceRepository: GitHubServiceRepository) {
 
+    lateinit var currentGistId: String
+
     fun getPublicGists(
         onSuccessListener: OnSuccessListener,
         onFailureListener: OnFailureListener
@@ -14,11 +16,10 @@ class GitHubViewModel(private val gitHubServiceRepository: GitHubServiceReposito
     }
 
     fun getGist(
-        gistId: String,
         onSuccessListener: OnSuccessListener,
         onFailureListener: OnFailureListener
     ) {
-        gitHubServiceRepository.getGist(gistId, onSuccessListener, onFailureListener)
+        gitHubServiceRepository.getGist(currentGistId, onSuccessListener, onFailureListener)
     }
 
     fun getStarredGists(

@@ -7,8 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import ericdiaz.program.linkedinlearningretrofitproject.R
-import ericdiaz.program.linkedinlearningretrofitproject.callback.OnFailureListener
-import ericdiaz.program.linkedinlearningretrofitproject.callback.OnSuccessListener
 import ericdiaz.program.linkedinlearningretrofitproject.view.recyclerview.ProfileViewViewHolder
 import ericdiaz.program.linkedinlearningretrofitproject.viewmodel.GitHubViewModel
 import ericdiaz.program.linkedinlearningretrofitproject.viewmodel.GitHubViewModelProvider
@@ -68,14 +66,9 @@ class MainActivity :
         }
     }
 
-
     override fun itemViewClicked(gistId: String) {
+        gitHubViewModel. currentGistId = gistId
         mainContainer.removeAllViews()
         mainContainer.addView(gistView)
-        gitHubViewModel.getGist(
-            gistId,
-            gistView as OnSuccessListener,
-            gistView as OnFailureListener
-        )
     }
 }
