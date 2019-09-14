@@ -26,12 +26,16 @@ class GistViewCommentAdapter : RecyclerView.Adapter<GistViewCommentViewHolder>()
         holder.onBind(gistComments[position])
     }
 
-    fun addData(comments: List<GistComment>) {
-        gistComments.addAll(comments)
+    fun addData(comments: List<GistComment>?) {
+        if (comments != null) {
+            gistComments.addAll(comments)
+        }
     }
 
-    fun addData(comment: GistComment) {
-        gistComments.add(gistComments.size - 1, comment)
+    fun addData(comment: GistComment?) {
+        if (comment != null) {
+            gistComments.add(gistComments.size - 1, comment)
+        }
     }
 
 }
