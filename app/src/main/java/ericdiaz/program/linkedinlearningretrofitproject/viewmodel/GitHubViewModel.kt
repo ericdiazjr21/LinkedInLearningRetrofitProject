@@ -36,4 +36,30 @@ class GitHubViewModel(private val gitHubServiceRepository: GitHubServiceReposito
         gitHubServiceRepository.getUserGists(onSuccessListener, onFailureListener)
     }
 
+    fun getGistCommentsById(
+        gistId: String,
+        pageNumber: Int,
+        onSuccessListener: OnSuccessListener,
+        onFailureListener: OnFailureListener
+    ) {
+        gitHubServiceRepository.getGistCommentsById(
+            gistId,
+            pageNumber,
+            onSuccessListener,
+            onFailureListener
+        )
+    }
+
+    fun getGistCommentHeadersById(
+        gistId: String,
+        onSuccessListener: OnSuccessListener,
+        onFailureListener: OnFailureListener
+    ) {
+        gitHubServiceRepository.getGistCommentHeadersById(
+            gistId,
+            onSuccessListener,
+            onFailureListener
+        )
+    }
+
 }
