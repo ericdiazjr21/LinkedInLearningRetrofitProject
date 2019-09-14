@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.squareup.picasso.Picasso
 import ericdiaz.program.linkedinlearningretrofitproject.R
+import ericdiaz.program.linkedinlearningretrofitproject.callback.GistOnSuccessListener
 import ericdiaz.program.linkedinlearningretrofitproject.callback.OnFailureListener
 import ericdiaz.program.linkedinlearningretrofitproject.callback.OnSuccessListener
 import ericdiaz.program.linkedinlearningretrofitproject.extensions.format
@@ -37,7 +38,7 @@ class GistView(context: Context, attrs: AttributeSet?) : ConstraintLayout(contex
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         gitHubViewModel.getGist(
-            object : OnSuccessListener {
+            object : GistOnSuccessListener {
                 override fun onSuccess(gist: Gist?) {
                     Picasso.get().load(gist?.gitHubUser?.photoUrl).into(githubUserPicImageView)
                     gistIdTextView.text = gist?.gistId

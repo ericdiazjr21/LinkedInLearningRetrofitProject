@@ -34,7 +34,6 @@ class NetworkTest {
         val response: Response<List<Gist>> = service.getStarredGists().execute()
 
         //then
-//        Assert.assertNotNull(response.body())
         Assert.assertEquals(expectedCode, response.code())
     }
 
@@ -56,7 +55,7 @@ class NetworkTest {
         //given
         val expectedCode = 200
         val testPageNumber = 1
-        val testGistId = "a946fd41fec95132614be5c9e4e32a5f"
+        val testGistId = "b476c250c5f2cd8e19da5d5d067fe057"
         //when
         val response: Response<List<GistComment>> =
             service.getGistCommentsById(testGistId, testPageNumber).execute()
@@ -70,7 +69,7 @@ class NetworkTest {
     fun testGetGistCommentsHeadersByIdFor200CodeWhenSynchronouslyCalled() {
         //given
         val expectedCode = 200
-        val testGistId = "a946fd41fec95132614be5c9e4e32a5f"
+        val testGistId = "b476c250c5f2cd8e19da5d5d067fe057"
         //when
 
         val response: Response<Void> = service.getGistCommentHeadersById(testGistId).execute()
