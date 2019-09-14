@@ -15,6 +15,7 @@ import ericdiaz.program.linkedinlearningretrofitproject.model.Gist
 import ericdiaz.program.linkedinlearningretrofitproject.viewmodel.GitHubViewModelProvider
 
 class GistView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
+
     private val gitHubViewModel = GitHubViewModelProvider.gitHubViewModel
 
     private lateinit var githubUserPicImageView: ImageView
@@ -26,7 +27,6 @@ class GistView(context: Context, attrs: AttributeSet?) : ConstraintLayout(contex
 
     override fun onFinishInflate() {
         super.onFinishInflate()
-
         githubUserPicImageView = findViewById(R.id.git_hub_user_pic)
         gistIdTextView = findViewById(R.id.git_hub_user_name)
         gistDateCreatedTextView = findViewById(R.id.date_created_text_view)
@@ -53,6 +53,8 @@ class GistView(context: Context, attrs: AttributeSet?) : ConstraintLayout(contex
                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
             })
+
+        gitHubViewModel.
     }
 
 
