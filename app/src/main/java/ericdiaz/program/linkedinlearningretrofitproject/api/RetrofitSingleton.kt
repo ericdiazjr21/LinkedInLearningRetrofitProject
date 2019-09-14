@@ -1,5 +1,7 @@
 package ericdiaz.program.linkedinlearningretrofitproject.api
 
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -13,12 +15,25 @@ import retrofit2.converter.gson.GsonConverterFactory
 // instance created when the field is accessed since the class has the object declaration.
 // No matter how many times it is accessed it will always have the same value. In other words,
 // its a singleton service.
+
 object RetrofitSingleton {
 
     private const val BASE_URL = "http://api.github.com"
 
+    private val loggingInterceptor = HttpLoggingInterceptor()
+
+    init {
+        loggingInterceptor.level = HttpLoggingInterceptor.Level.BASIC
+    }
+
+    private val client = OkHttpClient()
+        .newBuilder()
+        .addInterceptor(loggingInterceptor)
+        .build()
+
     private val singletonRetrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
+        .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
