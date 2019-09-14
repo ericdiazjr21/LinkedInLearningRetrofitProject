@@ -105,7 +105,7 @@ class GitHubServiceRepository constructor(
             })
     }
 
-    fun getGistCommentsHeadersById(
+    fun getGistCommentHeadersById(
         gistId: String,
         onSuccessListener: OnSuccessListener,
         onFailureListener: OnFailureListener
