@@ -11,9 +11,10 @@
 
         <ImageView
                 android:id="@+id/git_hub_user_pic"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toTopOf="@id/git_hub_user_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -24,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:text="This is a test Name"
                 android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@id/date_created_container"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/git_hub_user_pic" />
@@ -36,6 +38,7 @@
                 android:layout_margin="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/number_of_files_container"
                 app:layout_constraintTop_toBottomOf="@id/git_hub_user_name">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -74,6 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
+                app:layout_constraintBottom_toTopOf="@id/date_updated_container"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/date_created_container">
@@ -114,6 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
+                app:layout_constraintBottom_toTopOf="@id/date_created_container"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/number_of_files_container">
@@ -154,7 +159,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="4dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/gist_comments_recycler_view"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/date_updated_container">
@@ -191,6 +196,14 @@
         </com.google.android.material.card.MaterialCardView>
 
 
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/gist_comments_recycler_view"
+                app:layout_constraintTop_toBottomOf="@id/description_container"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </ericdiaz.program.linkedinlearningretrofitproject.view.GistView>
