@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ericdiaz.program.linkedinlearningretrofitproject.view.UserGistsView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<ericdiaz.program.linkedinlearningretrofitproject.view.UserGistsView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TextView
+    <EditText
+            android:id="@+id/user_name_edit_text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="user gists" />
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Enter Username"
+            app:layout_constraintBottom_toTopOf="@id/password_edit_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+    </EditText>
+
+    <EditText
+            android:id="@+id/password_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Password"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/user_name_edit_text">
+
+    </EditText>
+
+    <com.google.android.material.button.MaterialButton
+            app:layout_constraintTop_toBottomOf="@id/password_edit_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_margin="8dp">
+
+    </com.google.android.material.button.MaterialButton>
 
 </ericdiaz.program.linkedinlearningretrofitproject.view.UserGistsView>
