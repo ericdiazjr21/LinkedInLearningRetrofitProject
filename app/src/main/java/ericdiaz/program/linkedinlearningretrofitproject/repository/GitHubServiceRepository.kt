@@ -1,12 +1,10 @@
 package ericdiaz.program.linkedinlearningretrofitproject.repository
 
 import ericdiaz.program.linkedinlearningretrofitproject.api.GithubService
-import ericdiaz.program.linkedinlearningretrofitproject.callback.GistCommentOnSuccessListener
-import ericdiaz.program.linkedinlearningretrofitproject.callback.GistOnSuccessListener
-import ericdiaz.program.linkedinlearningretrofitproject.callback.OnFailureListener
-import ericdiaz.program.linkedinlearningretrofitproject.callback.OnSuccessListener
+import ericdiaz.program.linkedinlearningretrofitproject.callback.*
 import ericdiaz.program.linkedinlearningretrofitproject.model.Gist
 import ericdiaz.program.linkedinlearningretrofitproject.model.GistComment
+import ericdiaz.program.linkedinlearningretrofitproject.model.GitHubUser
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -96,7 +94,10 @@ class GitHubServiceRepository constructor(
                     onFailureListener.onFailure(t)
                 }
 
-                override fun onResponse(call: Call<List<GistComment>>, response: Response<List<GistComment>>) {
+                override fun onResponse(
+                    call: Call<List<GistComment>>,
+                    response: Response<List<GistComment>>
+                ) {
                     onSuccessListener
                         .let { it as GistCommentOnSuccessListener }
                         .onSuccess(response.body())
@@ -120,6 +121,24 @@ class GitHubServiceRepository constructor(
                     .onSuccess(response.headers())
             }
 
+        })
+    }
+
+    fun getLoggedInUser(
+        auth: String,
+        onSuccessListener: OnSuccessListener,
+        onFailureListener: OnFailureListener
+    ) {
+        githubService.getLoggedInUser(auth).enqueue(object : Callback<GitHubUser> {
+            override fun onFailure(call: Call<GitHubUser>, t: Throwable) {
+                onFailureListener.onFailure(t)
+            }
+
+            override fun onResponse(call: Call<GitHubUser>, response: Response<GitHubUser>) {
+                onSuccessListener
+                    .let { it as GitHubUserOnSuccessListener }
+                    .onSuccess(response.body())
+            }
         })
     }
 }

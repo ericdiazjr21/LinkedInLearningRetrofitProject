@@ -2,6 +2,7 @@ package ericdiaz.program.linkedinlearningretrofitproject.api
 
 import ericdiaz.program.linkedinlearningretrofitproject.model.Gist
 import ericdiaz.program.linkedinlearningretrofitproject.model.GistComment
+import ericdiaz.program.linkedinlearningretrofitproject.model.GitHubUser
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -50,5 +51,5 @@ interface GithubService {
 
 
     @GET("user")
-    fun getLoggedInUser(@Header("Authorization") auth: String)
+    fun getLoggedInUser(@Header("Authorization") auth: String): Call<GitHubUser>
 }
