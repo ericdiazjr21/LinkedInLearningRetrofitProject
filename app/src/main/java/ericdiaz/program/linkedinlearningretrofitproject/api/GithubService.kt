@@ -3,10 +3,7 @@ package ericdiaz.program.linkedinlearningretrofitproject.api
 import ericdiaz.program.linkedinlearningretrofitproject.model.Gist
 import ericdiaz.program.linkedinlearningretrofitproject.model.GistComment
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.HEAD
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface GithubService {
 
@@ -52,4 +49,6 @@ interface GithubService {
     fun getGistCommentHeadersById(@Path("gistId") gistId: String): Call<Void>
 
 
+    @GET("user")
+    fun getLoggedInUser(@Header("Authorization") auth: String)
 }
