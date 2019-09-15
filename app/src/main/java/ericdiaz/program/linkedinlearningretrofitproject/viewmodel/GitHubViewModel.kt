@@ -62,4 +62,12 @@ class GitHubViewModel(private val gitHubServiceRepository: GitHubServiceReposito
         )
     }
 
+    fun getLoggedInUser(
+        auth: String,
+        onSuccessListener: OnSuccessListener,
+        onFailureListener: OnFailureListener
+    ){
+        gitHubServiceRepository.getLoggedInUser(auth, onSuccessListener, onFailureListener)
+    }
+
 }
