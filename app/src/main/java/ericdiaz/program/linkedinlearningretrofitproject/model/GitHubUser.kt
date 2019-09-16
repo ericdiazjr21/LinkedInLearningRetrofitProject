@@ -12,6 +12,7 @@ data class GitHubUser(
     @SerializedName("location") val userLocation: String,
     @SerializedName("email") val userEmail: String,
     @SerializedName("bio") val userBio: String,
+    @SerializedName("gists_url") val userGistUrl: String,
     @SerializedName("public_gist") val userPublicGistCount: Int,
     @SerializedName("followers") val userFollowers: Int,
     @SerializedName("following") val userFollowing: Int,

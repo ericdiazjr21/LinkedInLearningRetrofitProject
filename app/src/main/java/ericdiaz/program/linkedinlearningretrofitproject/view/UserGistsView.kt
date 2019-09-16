@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.widget.Button
 import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import ericdiaz.program.linkedinlearningretrofitproject.R
 import ericdiaz.program.linkedinlearningretrofitproject.callback.GitHubUserOnSuccessListener
 import ericdiaz.program.linkedinlearningretrofitproject.callback.OnFailureListener
@@ -37,7 +38,7 @@ class UserGistsView(context: Context, attrs: AttributeSet?) : ConstraintLayout(c
                 passWord,
                 object : GitHubUserOnSuccessListener {
                     override fun onSuccess(gitHubUser: GitHubUser?) {
-                        gitHubUser?.fullName?.makeToast(context)
+                        hideLoginViews()
                     }
                 },
                 object : OnFailureListener {
@@ -49,5 +50,10 @@ class UserGistsView(context: Context, attrs: AttributeSet?) : ConstraintLayout(c
         }
     }
 
+    private fun hideLoginViews() {
+        userNameEditText.isVisible = false
+        passWordEditText.isVisible = false
+        loginButton.isVisible = false
+    }
 
 }
