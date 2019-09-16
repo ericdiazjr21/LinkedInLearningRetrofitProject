@@ -52,7 +52,9 @@ class GistView(context: Context, attrs: AttributeSet?) : ConstraintLayout(contex
             object : GistOnSuccessListener {
                 override fun onSuccess(gist: Gist?) {
                     Picasso.get().load(gist?.gitHubUser?.photoUrl).into(githubUserPicImageView)
-                    gistIdTextView.text = gist?.gistId
+                    gistIdTextView.text = gist?.gistFiles?.get(
+                        gist.gistFiles.keys.elementAt(0)
+                    )?.filename
                     gistDateCreatedTextView.text = gist?.createdAt?.format()
                     gistNumberOfFilesTextView.text = gist?.gistFiles?.size.toString()
                     gistLastUpdatedTextView.text = gist?.updatedAt?.format()
