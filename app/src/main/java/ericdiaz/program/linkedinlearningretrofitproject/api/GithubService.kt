@@ -51,5 +51,5 @@ interface GithubService {
 
 
     @GET("user")
-    fun getLoggedInUser(@Header("Authorization") auth: String): Call<GitHubUser>
+    fun getLoggedInUser(): Call<GitHubUser>
 }
