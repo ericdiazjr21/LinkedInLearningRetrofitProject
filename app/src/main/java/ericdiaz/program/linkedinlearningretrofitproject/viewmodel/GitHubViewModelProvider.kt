@@ -5,8 +5,7 @@ import ericdiaz.program.linkedinlearningretrofitproject.repository.GitHubService
 
 object GitHubViewModelProvider {
 
-    private val gitHubServiceRepository =
-        GitHubServiceRepository(RetrofitSingleton.gitHubService)
+    private val gitHubServiceRepository = GitHubServiceRepository(RetrofitSingleton.githubService)
 
     val gitHubViewModel = GitHubViewModel(gitHubServiceRepository)
 }

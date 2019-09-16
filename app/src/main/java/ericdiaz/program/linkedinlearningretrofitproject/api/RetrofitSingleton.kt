@@ -26,16 +26,27 @@ object RetrofitSingleton {
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BASIC
     }
 
+    private fun singletonRetrofit(customClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(customClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
     private val client = OkHttpClient()
         .newBuilder()
         .addInterceptor(loggingInterceptor)
         .build()
 
-    private val singletonRetrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .client(client)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    val  githubService: GithubService = singletonRetrofit(client).create(GithubService::class.java)
 
-    val gitHubService: GithubService = singletonRetrofit.create(GithubService::class.java)
+    fun getGitHubServiceUserOAuth(userName: String, accessToken: String): GithubService {
+        val client = OkHttpClient()
+            .newBuilder()
+            .addInterceptor(loggingInterceptor)
+            .addNetworkInterceptor(BasicAuthInterceptor(userName, accessToken))
+            .build()
+        return singletonRetrofit(client).create(GithubService::class.java)
+    }
 }

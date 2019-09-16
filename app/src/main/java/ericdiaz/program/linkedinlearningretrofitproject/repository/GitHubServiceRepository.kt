@@ -1,6 +1,7 @@
 package ericdiaz.program.linkedinlearningretrofitproject.repository
 
 import ericdiaz.program.linkedinlearningretrofitproject.api.GithubService
+import ericdiaz.program.linkedinlearningretrofitproject.api.RetrofitSingleton
 import ericdiaz.program.linkedinlearningretrofitproject.callback.*
 import ericdiaz.program.linkedinlearningretrofitproject.model.Gist
 import ericdiaz.program.linkedinlearningretrofitproject.model.GistComment
@@ -125,20 +126,24 @@ class GitHubServiceRepository constructor(
     }
 
     fun getLoggedInUser(
-        auth: String,
+        userName: String,
+        accessToken: String,
         onSuccessListener: OnSuccessListener,
         onFailureListener: OnFailureListener
     ) {
-        githubService.getLoggedInUser(auth).enqueue(object : Callback<GitHubUser> {
-            override fun onFailure(call: Call<GitHubUser>, t: Throwable) {
-                onFailureListener.onFailure(t)
-            }
+        RetrofitSingleton
+            .getGitHubServiceUserOAuth(userName, accessToken)
+            .getLoggedInUser()
+            .enqueue(object : Callback<GitHubUser> {
+                override fun onFailure(call: Call<GitHubUser>, t: Throwable) {
+                    onFailureListener.onFailure(t)
+                }
 
-            override fun onResponse(call: Call<GitHubUser>, response: Response<GitHubUser>) {
-                onSuccessListener
-                    .let { it as GitHubUserOnSuccessListener }
-                    .onSuccess(response.body())
-            }
-        })
+                override fun onResponse(call: Call<GitHubUser>, response: Response<GitHubUser>) {
+                    onSuccessListener
+                        .let { it as GitHubUserOnSuccessListener }
+                        .onSuccess(response.body())
+                }
+            })
     }
 }
